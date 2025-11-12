@@ -1,0 +1,1 @@
+-- Struktur tabel (user, buku, kontak) untuk database Azizi.io
