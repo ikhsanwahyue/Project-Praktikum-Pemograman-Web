@@ -23,8 +23,21 @@
       </a>
 
       <ul class="navbar-nav mx-auto d-none d-lg-flex">
-        <li class="nav-item"><a class="nav-link" href="?page=buku">Buku</a></li>
-        <li class="nav-item"><a class="nav-link" href="?page=kontak">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="?page=Beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="?page=About">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Book
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?kategori=fiksi">Fiksi</a></li>
+            <li><a class="dropdown-item" href="?kategori=nonfiksi">Non-Fiksi</a></li>
+            <li><a class="dropdown-item" href="?kategori=puisi">Puisi</a></li>
+            <li><a class="dropdown-item" href="?kategori=esai">Esai</a></li>
+            <li><a class="dropdown-item" href="?kategori=ilmiah">Ilmiah</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="?page=Contact">Contact</a></li>
       </ul>
 
       <div class="dropdown">
