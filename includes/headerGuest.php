@@ -5,6 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Azizi.io</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+  /* Foto profil bulat (kalau dipakai di user) */
+  .profile-img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* Navbar utama */
+  .navbar {
+    background-color: #ffffff; /* putih bersih */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* bayangan halus */
+  }
+
+  /* Logo */
+  .navbar-brand {
+    font-weight: bold;
+    color: #3d395e; /* ungu tua */
+  }
+
+  /* Link menu */
+  .navbar .nav-link {
+    color: #3d395e; /* ungu tua */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .navbar .nav-link:hover {
+    color: #f8b57a; /* oranye terang saat hover */
+  }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .dropdown-menu .dropdown-item {
+    color: #3d395e;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #f8b57a;
+    color: #ffffff;
+  }
+
+  /* Tombol login/daftar */
+  .btn-primary {
+    background-color: #3d395e;
+    border-color: #3d395e;
+  }
+
+  .btn-primary:hover {
+    background-color: #f8b57a;
+    border-color: #f8b57a;
+  }
+
+  .btn-outline-primary {
+    color: #3d395e;
+    border-color: #3d395e;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #f8b57a;
+    border-color: #f8b57a;
+    color: #ffffff;
+  }
+</style>
+
   </head>
   <body>
 
