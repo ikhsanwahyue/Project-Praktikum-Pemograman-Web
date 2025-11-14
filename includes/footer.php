@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+  /* Footer utama */
+  footer {
+    background-color: #f8f9fa; /* sama dengan bg-light */
+    color: #676f8d; /* abu keunguan */
+    font-size: 0.95rem;
+  }
+
+  /* Judul footer */
+  footer .fw-semibold {
+    color: #3d395e; /* ungu tua */
+  }
+
+  /* Link footer */
+  footer a {
+    color: #676f8d;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #f8b57a; /* oranye terang saat hover */
+  }
+
+  /* Garis atas footer */
+  footer.border-top {
+    border-color: #e0e0e0;
+  }
+
+  /* Copyright */
+  footer .small {
+    color: #3d395e;
+  }
+</style>
+
   </head>
   <body>
     <div class="footer">
