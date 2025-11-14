@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #f5f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #3d395e;
+}
+
+.nav-link {
+  color: #3d395e !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f8b57a !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+  color: #3d395e;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8b57a;
+  color: #ffffff;
+}
+
+/* Tombol */
+.btn-primary {
+  background-color: #3d395e;
+  border-color: #3d395e;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #f8b57a;
+  border-color: #f8b57a;
+  color: #3d395e;
+}
+
+.btn-outline-primary {
+  color: #3d395e;
+  border-color: #3d395e;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f8b57a;
+  border-color: #f8b57a;
+  color: #ffffff;
+}
+
+/* Foto profil */
+.profile-img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
