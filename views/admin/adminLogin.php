@@ -1,10 +1,10 @@
 <?php
-require_once '../config/database.php';
+require_once '../../config/database.php';
 session_start();
 
 // Redirect jika sudah login
 if(isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header("Location: adminDashboard.php");
+    header("Location: adminDashbord.php");
     exit();
 }
 
