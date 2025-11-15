@@ -1,10 +1,10 @@
 <?php
 
 // pastikan sama dengan punya mu, jika ada password masukan pass ke variabel pass
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "e_book";
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'e_book';
 
 try {
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
