@@ -9,9 +9,9 @@ CREATE TABLE `user` (
     `username` VARCHAR(50) UNIQUE NOT NULL,
     `email` VARCHAR(100) UNIQUE NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `foto_profil` BLOB,
+    `foto_profil` VARCHAR(255) NULL, -- ⭐ UBAH: VARCHAR untuk nama file
     `dibuat_pada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) AUTO_INCREMENT = 1000;
+) AUTO_INCREMENT = 1000; 
 
 -- Tabel admin (ID dimulai dari 500)
 CREATE TABLE `admin` (
@@ -43,9 +43,9 @@ CREATE TABLE `buku` (
     `penulis_id` INT,
     `kategori_id` INT,
     `judul` VARCHAR(255) NOT NULL,
-    `cover` LONGBLOB,
+    `cover` VARCHAR(255) NULL, -- ⭐ UBAH: VARCHAR untuk nama file cover
     `deskripsi` TEXT,
-    `file_buku` BLOB,
+    `file_buku` VARCHAR(255) NULL, -- ⭐ UBAH: VARCHAR untuk nama file PDF
     `penerbit` VARCHAR(100),
     `terbit_pada` DATE,
     `dibuat_pada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -58,7 +58,6 @@ CREATE TABLE `buku_favorit` (
     `favorit_id` INT AUTO_INCREMENT PRIMARY KEY,
     `buku_id` INT,
     `user_id` INT,
-    `rating` DECIMAL(2,1) CHECK (`rating` >= 0 AND `rating` <= 5),
     `ditambahkan_pada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (`buku_id`) REFERENCES `buku`(`buku_id`),
     FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`)
@@ -80,7 +79,7 @@ CREATE TABLE `comments` (
    `comment_id` INT AUTO_INCREMENT PRIMARY KEY,
    `user_id` INT NOT NULL,
    `buku_id` INT NOT NULL,
-   `email` VARCHAR(100) NOT NULL,
+   `rating` INT NOT NULL,
    `comment` TEXT NOT NULL,
    `disimpan_pada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`),
