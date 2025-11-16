@@ -540,7 +540,7 @@ $base_dir = "../uploads/";
                                         $cover_path = $base_dir . 'covers/' . $book['cover'];
                                         if($book['cover'] && file_exists($cover_path)): 
                                         ?>
-                                            <img src="../view_image.php?file=<?php echo urlencode($book['cover']); ?>" 
+                                            <img src="./view_image.php?file=<?php echo urlencode($book['cover']); ?>" 
                                                  alt="Cover" 
                                                  class="book-cover"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -580,7 +580,7 @@ $base_dir = "../uploads/";
                                         $book_path = $base_dir . 'books/' . $book['file_buku'];
                                         if($book['file_buku'] && file_exists($book_path)): 
                                         ?>
-                                            <a href="../download_book.php?file=<?php echo urlencode($book['file_buku']); ?>" 
+                                            <a href="./download_book.php?file=<?php echo urlencode($book['file_buku']); ?>" 
                                                class="btn btn-sm btn-outline-success btn-action"
                                                data-bs-toggle="tooltip" 
                                                title="Download PDF">
