@@ -6,7 +6,6 @@ if(isset($_POST['add_admin'])){
     $password = $_POST['password'];
 
     try {
-        // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $stmt = $connection->prepare(
