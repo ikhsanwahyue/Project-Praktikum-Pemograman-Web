@@ -1,7 +1,7 @@
 <!-- Data buku  -->
  <?php
 // bukuModels.php
-require_once '../config/database.php';
+require_once  __DIR__ . '/../config/database.php';
 
 class BukuModel {
     private $db;

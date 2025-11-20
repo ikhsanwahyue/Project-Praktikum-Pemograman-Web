@@ -1463,3 +1463,513 @@ body {
         text-align: center;
     }
 }
+
+/* =======================================
+   File: public/css/admin.css
+   Palet Warna:
+   - #3d395e (Dark Purple) - Primary Background, Text Dark
+   - #f8b57a (Light Orange) - Accent, Button, Links
+   - #4a466c (Medium Purple) - Card/Sidebar Background
+   - #e9e6ff (Lightest Background) - Main Content Background
+   ======================================= */
+
+/* --- 1. Global Reset & Typography --- */
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9e6ff; /* Background utama konten */
+    color: #3d395e;
+}
+
+h1, h2, h3, h4 {
+    color: #3d395e;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: #f8b57a;
+}
+
+/* --- 2. Main Layout Container --- */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- 3. Sidebar (Left Column) --- */
+.sidebar {
+    width: 250px;
+    background-color: #4a466c; /* Medium Purple */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-header h2 {
+    color: #f8b57a; /* Light Orange Accent */
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    padding: 0.5rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: #e9e6ff; /* Off-white for text */
+    transition: background-color 0.2s, color 0.2s;
+    position: relative;
+}
+
+.nav-item i {
+    width: 25px;
+    text-align: center;
+}
+
+.nav-item span {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #3d395e; /* Dark Purple Hover */
+    color: #f8b57a;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #f8b57a; /* Indicator aktif oranye */
+}
+
+.nav-badge {
+    background-color: #f8b57a;
+    color: #3d395e;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: auto;
+}
+
+.sidebar-footer {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-footer .nav-item:hover {
+    background-color: #2d3250;
+    color: #f8b57a;
+}
+
+
+/* --- 4. Main Content Area --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+/* --- 5. Admin Header (Top Bar) --- */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #3d395e;
+}
+
+.welcome-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #676f8d;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #f8b57a;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #3d395e;
+}
+
+.fa-chevron-down {
+    font-size: 0.7rem;
+    color: #676f8d;
+}
+
+/* --- 6. Statistics Cards --- */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.stat-icon.book { background-color: #f8b57a; } /* Orange */
+.stat-icon.user { background-color: #7d799f; } /* Soft Purple */
+.stat-icon.message { background-color: #5c87e8; } /* Blue/Navy */
+.stat-icon.category { background-color: #3d395e; } /* Dark Purple */
+
+.stat-info {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.stat-number {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #676f8d;
+}
+
+.stat-link {
+    color: #676f8d;
+    transition: color 0.2s;
+}
+
+.stat-link:hover {
+    color: #f8b57a;
+}
+
+/* --- 7. Dashboard Content (Recent Lists & Actions) --- */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Kolom kiri lebih lebar dari kanan */
+    gap: 1.5rem;
+}
+
+.content-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem; /* Untuk memisahkan kartu di kolom yang sama */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9e6ff;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.card-link {
+    font-size: 0.9rem;
+    color: #f8b57a;
+    font-weight: 600;
+}
+
+/* --- 7.1 Recent Lists Styling (Books, Users, Messages) --- */
+.recent-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #f0f0f5;
+}
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+.item-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.text-avatar {
+    background-color: #f8b57a;
+    color: #3d395e;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-avatar.unread {
+    background-color: #5c87e8; /* Blue for unread messages */
+    color: white;
+}
+
+.item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.item-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #3d395e;
+}
+
+.item-subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #676f8d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-meta {
+    font-size: 0.75rem;
+    color: #b0b0c8;
+}
+
+.role-admin {
+    background-color: #3d395e;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.role-user {
+    background-color: #f8b57a;
+    color: #3d395e;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.item-actions {
+    margin-left: 15px;
+}
+
+.btn-edit, .btn-view {
+    color: #676f8d;
+    transition: color 0.2s;
+}
+
+.btn-edit:hover, .btn-view:hover {
+    color: #f8b57a;
+}
+
+/* --- 7.2 Quick Actions Styling --- */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.quick-action {
+    background-color: #f9f9fb;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #3d395e;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+    border: 1px solid #e9e6ff;
+}
+
+.quick-action:hover {
+    background-color: #f8b57a;
+    color: #3d395e;
+    transform: translateY(-2px);
+    border-color: #f8b57a;
+}
+
+.action-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #f8b57a;
+}
+
+.quick-action:hover .action-icon {
+    color: #3d395e;
+}
+
+/* --- 7.3 System Info Styling --- */
+.system-info {
+    padding-top: 0.5rem;
+}
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #f0f0f5;
+}
+.info-item:last-child {
+    border-bottom: none;
+}
+.info-label {
+    font-weight: 600;
+    color: #676f8d;
+}
+.info-value {
+    color: #3d395e;
+    font-weight: 400;
+}
+
+/* --- 8. Responsiveness (Mobile Optimization) --- */
+@media (max-width: 1024px) {
+    .dashboard-content {
+        grid-template-columns: 1fr; /* Di bawah 1024px, ubah ke satu kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem 0;
+    }
+
+    .sidebar-header {
+        padding-bottom: 1rem;
+    }
+
+    .sidebar-nav {
+        display: none; /* Sembunyikan navigasi di mobile */
+    }
+
+    .sidebar-footer {
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem 1rem;
+        border-top: none;
+    }
+    .sidebar-footer .nav-item {
+        padding: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.75rem;
+    }
+    .sidebar-footer .nav-item span {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .header-right {
+        margin-top: 1rem;
+        width: 100%;
+        border-top: 1px solid #f0f0f5;
+        padding-top: 10px;
+    }
+    .user-menu {
+        justify-content: flex-start;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
+

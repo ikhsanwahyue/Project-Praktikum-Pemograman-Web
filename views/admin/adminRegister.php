@@ -1,216 +1,137 @@
 <?php
-require_once '../../config/database.php';
+// file: views/admin/adminRegister.php
+// Tanggung Jawab: Tampilan (Frontend)
+
+// 1. Inisiasi Sesi: Wajib untuk mengambil dan menampilkan pesan status dari Controller.
 session_start();
-
-if(isset($_POST['daftar'])){
-    $username = trim($_POST['username']);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-
-    try {
-        // Validasi input
-        if(empty($username) || empty($password)) {
-            throw new Exception("Username dan password harus diisi");
-        }
-
-        if(strlen($username) < 3) {
-            throw new Exception("Username minimal 3 karakter");
-        }
-
-        if(strlen($password) < 6) {
-            throw new Exception("Password minimal 6 karakter");
-        }
-
-        if($password !== $confirm_password) {
-            throw new Exception("Konfirmasi password tidak sesuai");
-        }
-
-        // Cek apakah username sudah ada
-        $check_stmt = $connection->prepare("SELECT admin_id FROM admin WHERE username = ?");
-        $check_stmt->bind_param("s", $username);
-        $check_stmt->execute();
-        $check_stmt->store_result();
-        
-        if($check_stmt->num_rows > 0) {
-            throw new Exception("Username sudah digunakan");
-        }
-        $check_stmt->close();
-
-        // Hash password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Insert admin baru
-        $stmt = $connection->prepare(
-            "INSERT INTO admin (username, password) VALUES (?, ?)"
-        );
-        $stmt->bind_param("ss", $username, $hashed_password);
-
-        if($stmt->execute()) {
-            $_SESSION['success'] = "Pendaftaran berhasil! Silakan login.";
-            header("Location: adminLogin.php");
-            exit();
-        } else {
-            throw new Exception("Gagal mendaftarkan admin");
-        }
-
-        $stmt->close();
-
-    } catch (Exception $e) {
-        $error = $e->getMessage();
-    }
-}
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Admin - Sistem Manajemen Buku</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daftar Admin Azizi.io</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ========================================================= */
+        /* STYLE KUSTOM AZIZI.IO (Konsisten dengan Palet Warna) */
+        /* ========================================================= */
+        
+        /* Variabel CSS dari Palet Anda: #2d3250, #424769, #f9b17a, dll. */
+        :root {
+            --bg-body: #2d3250; 
+            --bg-card: #424769; 
+            --color-text: #ffffff;
+            --color-accent: #f9b17a; 
+            --color-secondary: #676f9d; 
+            --font-family: 'Raleway', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            /* Gradasi yang mirip dengan adminLogin.php */
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--bg-body) 100%); 
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-family);
+            color: var(--color-text);
         }
 
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .register-card { 
+            background-color: var(--bg-card);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+        .register-card h4 {
+            font-weight: 600;
+            color: var(--color-text);
         }
-
-        .form-group {
-            margin-bottom: 1rem;
+        .form-label {
+            font-weight: 400;
+            color: var(--color-text);
         }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-weight: 500;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 0.75rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        
+        /* Tombol Daftar/Button Style */
+        .btn-custom {
+            /* Gradien yang sama dengan tombol Login Admin */
+            background: linear-gradient(135deg, var(--color-secondary), var(--bg-card));
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s;
+            color: var(--color-text);
+            font-weight: 600;
+            transition: all 0.2s;
+            padding: 0.75rem; 
+            width: 100%;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
+        .btn-custom:hover {
+            background: linear-gradient(135deg, var(--bg-card), var(--color-secondary));
+            color: var(--color-text);
         }
-
-        .login-link {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
+        
+        /* Tautan Login di Sini */
+        .link-secondary {
+            color: var(--color-secondary) !important;
         }
-
-        .login-link a {
-            color: #667eea;
-            text-decoration: none;
+        .link-secondary:hover {
+            color: var(--color-accent) !important;
         }
-
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-
-        .error {
-            background: #fee;
-            color: #c33;
-            padding: 0.75rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #c33;
-        }
-
-        .success {
-            background: #efe;
-            color: #363;
-            padding: 0.75rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #363;
+        
+        /* Style untuk pesan sukses/error (agar pakai warna konsisten) */
+        .alert-custom {
+            background-color: #f9b17a20; /* Sedikit transparan dari warna aksen */
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Daftar Admin</h1>
-        
-        <?php if(isset($error)): ?>
-            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+    <div class="register-card">
+        <h4 class="fw-bold mb-5 text-center">Daftar Admin</h4>
+
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert alert-custom text-center small py-2" role="alert">
+                <?= $_SESSION['error']; ?>
+            </div>
+            <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['success'])): ?>
+            <div class="alert alert-success text-center small py-2" role="alert">
+                <?= $_SESSION['success']; ?>
+            </div>
+            <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
-        <?php if(isset($_SESSION['success'])): ?>
-            <div class="success"><?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?></div>
-        <?php endif; ?>
-
-        <form method="POST" action="">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required 
-                       value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>">
+        <form action="../../proses_admin_register.php" method="POST">
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email Admin" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+            <div class="mb-4">
+                <label for="konfirmasi" class="form-label">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="konfirmasi" name="konfirmasi" placeholder="Ulangi Password" required>
             </div>
 
-            <div class="form-group">
-                <label for="confirm_password">Konfirmasi Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-
-            <button type="submit" name="daftar" class="btn">Daftar</button>
+            <button type="submit" name="daftar_admin" class="btn btn-custom">Daftar</button>
         </form>
 
-        <div class="login-link">
-            Sudah punya akun? <a href="adminLogin.php">Login di sini</a>
+        <div class="text-center mt-4">
+            <a href="adminLogin.php" class="text-decoration-none small link-secondary">Sudah punya akun? Login di sini</a>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
