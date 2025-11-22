@@ -1,31 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="footer">
-        <footer class="bg-light text-center text-muted py-4 mt-5 border-top">
-            <div class="container">
-                <p class="mb-1 fw-semibold">Azizi.io — Platform Buku Digital Mahasiswa</p>
-                <p class="mb-2">Temukan, langganan, dan baca karya tulis dari penulis muda Indonesia.</p>
-    
-                <div class="d-flex justify-content-center gap-3 mb-3">
-                    <a href="?page=tentang" class="text-decoration-none text-muted">Tentang Kami</a>
-                    <a href="?page=kontak" class="text-decoration-none text-muted">Kontak</a>
-                    <a href="?page=syarat" class="text-decoration-none text-muted">Syarat & Ketentuan</a>
-                </div>
-
-                <p class="mb-0 small">
-                    &copy; <?= date('Y') ?> Azizi.io — Hak Cipta Badan Pengembangan dan Pembinaan Bahasa.<br>
-                    Dibuat oleh <strong>Ikhsan Wahyu Endriarto</strong> dan <strong>Aziz Putra Darnawan</strong>
-                </p>
-            </div>
-        </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>E-Book Store</h5>
+                    <p>Tempat terbaik untuk membaca dan menemukan buku digital favorit Anda.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Link Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.php" class="text-light">Beranda</a></li>
+                        <li><a href="books.php" class="text-light">Buku</a></li>
+                        <li><a href="contact.php" class="text-light">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> info@ebookstore.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +62 123 4567 890</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 E-Book Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
