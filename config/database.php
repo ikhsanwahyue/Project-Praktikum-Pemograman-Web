@@ -1,6 +1,5 @@
 <?php
-
-// session_start();
+session_start();
 
 $host = 'localhost';
 $username = 'root';
@@ -14,7 +13,22 @@ try {
     echo "Error occured : " . $e->getMessage();
 }
 
-// Base URL configuration
-define('BASE_URL', '/Project-Praktikum-Pemograman-Web');
-define('CSS_PATH', BASE_URL . '/public/css/style.css');
-define('IMG_PATH', BASE_URL . '/public/asset/');
+// Fungsi untuk memeriksa apakah user sudah login
+function isLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+// Fungsi untuk mendapatkan data user yang sedang login
+function getCurrentUser($connection) {
+    if (isLoggedIn()) {
+        $user_id = $_SESSION['user_id'];
+        $stmt = $connection->prepare("SELECT * FROM user WHERE user_id = ?");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+    return null;
+}
+
+?>
