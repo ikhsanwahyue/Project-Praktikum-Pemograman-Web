@@ -1,5 +1,7 @@
 <?php
 
+// session_start();
+
 if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) {
     header("Location: beranda.php");
     exit();
@@ -26,7 +28,6 @@ if (isset($_GET['status'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/style.css?v=2.0">
-</head>
 <body class="login-page-body">
 
     <div class="login-card">
@@ -43,7 +44,7 @@ if (isset($_GET['status'])) {
             </div>
         <?php endif; ?>
 
-        <form action="processRegister.php" method="POST">
+        <form action="../processRegister.php" method="POST">
             <div class="mb-3">
                 <label for="nama_lengkap" class="form-label text-muted-custom">Nama Lengkap</label>
                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Contoh: Budi Santoso" required>

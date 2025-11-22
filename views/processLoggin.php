@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
                 
-                header("Location: beranda.php");
+                header("Location: /Project-Praktikum-Pemograman-Web/index.php");
                 exit();
             } else {
                 header("Location: login.php?status=failed");

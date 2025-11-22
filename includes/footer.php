@@ -1,3 +1,10 @@
-<footer class="bg-dark text-white text-center py-4 mt-5">
-    <p class="mb-0">&copy; <?= date('Y') ?> Azizi.io — Semua Hak Dilindungi</p>
+<footer class="footer-simple">
+    <div class="footer-simple-content">
+        <p class="footer-text">&copy; <?= date('Y') ?> Azizi.io — Semua Hak Dilindungi</p>
+        <div class="footer-decoration">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
 </footer>

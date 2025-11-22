@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="text" class="form-control w-50" id="captcha" name="captcha" required placeholder="Masukkan kode captcha">
                         </div>
 
-                        <button type="submit" class="btn btn-kirim w-100 mt-2">KIRIM PESAN</button>
+                        <button type="submit" class="btn btn-primary d-flex  mt-2">KIRIM PESAN</button>
                     </form>
                 </div>
             </div>

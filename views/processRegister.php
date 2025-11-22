@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insert_user->bind_param("ssss", $nama_lengkap, $username, $email, $hashed_password);
         
         if ($insert_user->execute()) {
-            header("Location: login.php?status=registered");
+            header("Location: /Project-Praktikum-Pemograman-Web/views/auth/login.php");
             exit();
         } else {
             header("Location: daftar.php?status=error");
