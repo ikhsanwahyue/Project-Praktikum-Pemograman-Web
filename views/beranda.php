@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/Project-Praktikum-Pemograman-Web/public/css/style.css?v=<?= time() ?>">
 
 <!-- HERO SECTION (Semi Dark Full Width) -->
 <section class="hero-semidark">
@@ -9,7 +10,6 @@
             <div class="hero-actions">
                 <a href="buku.php" class="btn-primary">Jelajahi Buku</a>
                 <?php if (!isset($_SESSION['is_logged_in'])): ?>
-                    <a href="daftar.php" class="btn-outline">Daftar</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -123,7 +123,7 @@
     <div class="container">
         <div class="cta-card">
             <h2>Mau Jadi Penulis di Azizi.io?</h2>
-            <a href="penulis.php" class="cta-btn">Jadi Penulis →</a>
+            <a href="penulis.php" class="cta-btn">Jadi Penulis</a>
         </div>
     </div>
 </section>

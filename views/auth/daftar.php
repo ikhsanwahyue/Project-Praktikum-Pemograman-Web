@@ -25,12 +25,12 @@ if (isset($_GET['status'])) {
     <title>Daftar Akun | Azizi.io</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../public/css/style.css?v=2.0">
+    <link rel="stylesheet" href="../../public/css/style.css?v=2.0">
 </head>
 <body class="login-page-body">
 
     <div class="login-card">
-        <img src="../public/asset/LogoAziziz.png"
+        <img src="../../public/asset/LogoAziziz.png"
              onerror="this.onerror=null;this.src='https://placehold.co/80x80/2a2d44/648599?text=AZ'"
              alt="Logo Azizi.io"
              class="logo-img d-block mx-auto mb-3"

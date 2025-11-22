@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+$base_url = '/Project-Praktikum-Pemograman-Web';
 // Handle routing
 $page = $_GET['page'] ?? 'beranda';
 $kategori = $_GET['kategori'] ?? '';

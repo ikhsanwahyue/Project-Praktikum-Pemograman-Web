@@ -39,12 +39,12 @@ if (isset($_GET['status'])) {
     <title>Login | Azizi.io</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../public/css/style.css"> 
+    <link rel="stylesheet" href="../../public/css/style.css?v=2.0">
 </head>
 <body class="login-page-body">
 
     <div class="login-card">
-        <img src="../public/asset/LogoAziziz.png"
+        <img src="../../public/asset/LogoAziziz.png"
              onerror="this.onerror=null;this.src='https://placehold.co/80x80/2a2d44/648599?text=AZ'"
              alt="Logo Azizi.io"
              class="logo-img d-block mx-auto mb-3"
@@ -59,7 +59,7 @@ if (isset($_GET['status'])) {
             </div>
         <?php endif; ?>
 
-        <form action="processLoggin.php" method="POST">
+        <form action="../views/processLoggin.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label text-muted-custom">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email Anda" required autocomplete="off" aria-label="Email">
@@ -72,7 +72,7 @@ if (isset($_GET['status'])) {
         </form>
 
         <p class="link-text">
-            Belum punya akun? <a href="daftar.php" class="text-light-link">Daftar di sini</a>
+            Belum punya akun? <a href="?page=daftar" class="text-light-link">Daftar di sini</a>
         </p>
     </div>
 

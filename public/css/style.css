@@ -1,0 +1,711 @@
+/* ===== REGISTRATION PAGE STYLES ===== */
+.login-page-body {
+    background: linear-gradient(135deg, #2d3250 0%, #424769 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(45, 50, 80, 0.2);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #e9ecef;
+}
+
+.logo-img {
+    filter: drop-shadow(0 4px 8px rgba(249, 177, 122, 0.3));
+}
+
+.text-accent {
+    color: #2d3250 !important;
+    font-weight: 700;
+}
+
+.text-muted-custom {
+    color: #676f9d !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Controls */
+.login-card .form-control {
+    background-color: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #2d3250;
+    transition: all 0.3s ease;
+}
+
+.login-card .form-control:focus {
+    border-color: #f9b17a;
+    box-shadow: 0 0 0 0.25rem rgba(249, 177, 122, 0.15);
+    background-color: #ffffff;
+}
+
+.login-card .form-control::placeholder {
+    color: #a8a9b5;
+    font-weight: 400;
+}
+
+/* Button Styles */
+.btn-primary-login {
+    background: linear-gradient(135deg, #f9b17a 0%, #e89e6a 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    color: #2d3250;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary-login:hover {
+    background: linear-gradient(135deg, #e89e6a 0%, #d88d5a 100%);
+    color: #2d3250;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(249, 177, 122, 0.3);
+}
+
+.btn-primary-login:active {
+    transform: translateY(0);
+}
+
+/* Alert Styles */
+.login-card .alert {
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    padding: 12px 16px;
+    margin-bottom: 1.5rem;
+}
+
+.login-card .alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.login-card .alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    border: 1px solid rgba(25, 135, 84, 0.2);
+}
+
+/* Link Styles */
+.link-text {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    color: #676f9d;
+    font-size: 0.9rem;
+}
+
+.text-light-link {
+    color: #f9b17a !important;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.text-light-link:hover {
+    color: #e89e6a !important;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+        margin: 10px;
+    }
+    
+    .login-page-body {
+        padding: 15px;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Password Strength Indicator (Optional) */
+.password-strength {
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.strength-weak { color: #dc3545; }
+.strength-medium { color: #fd7e14; }
+.strength-strong { color: #198754; }
+
+/* ===== LOGIN PAGE FIX ===== */
+.login-page-body {
+    background: linear-gradient(135deg, #2d3250 0%, #424769 100%) !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Raleway', sans-serif !important;
+    padding: 20px !important;
+    margin: 0 !important;
+}
+
+.login-card {
+    background: #ffffff !important;
+    padding: 2.5rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 35px rgba(45, 50, 80, 0.2) !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.logo-img {
+    filter: drop-shadow(0 4px 8px rgba(249, 177, 122, 0.3)) !important;
+}
+
+.text-accent {
+    color: #2d3250 !important;
+    font-weight: 700 !important;
+}
+
+.text-muted-custom {
+    color: #676f9d !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Form Controls */
+.login-card .form-control {
+    background-color: #ffffff !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+    color: #2d3250 !important;
+    transition: all 0.3s ease !important;
+}
+
+.login-card .form-control:focus {
+    border-color: #f9b17a !important;
+    box-shadow: 0 0 0 0.25rem rgba(249, 177, 122, 0.15) !important;
+    background-color: #ffffff !important;
+}
+
+.login-card .form-control::placeholder {
+    color: #a8a9b5 !important;
+    font-weight: 400 !important;
+}
+
+/* Button Styles */
+.btn-primary-login {
+    background: linear-gradient(135deg, #f9b17a 0%, #e89e6a 100%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
+    font-weight: 700 !important;
+    color: #2d3250 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.btn-primary-login:hover {
+    background: linear-gradient(135deg, #e89e6a 0%, #d88d5a 100%) !important;
+    color: #2d3250 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(249, 177, 122, 0.3) !important;
+}
+
+/* Alert Styles */
+.login-card .alert {
+    border-radius: 10px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    padding: 12px 16px !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.login-card .alert-danger {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    color: #dc3545 !important;
+    border: 1px solid rgba(220, 53, 69, 0.2) !important;
+}
+
+.login-card .alert-success {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+    color: #198754 !important;
+    border: 1px solid rgba(25, 135, 84, 0.2) !important;
+}
+
+.login-card .alert-warning {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    color: #856404 !important;
+    border: 1px solid rgba(255, 193, 7, 0.2) !important;
+}
+
+.login-card .alert-info {
+    background-color: rgba(23, 162, 184, 0.1) !important;
+    color: #0c5460 !important;
+    border: 1px solid rgba(23, 162, 184, 0.2) !important;
+}
+
+/* Link Styles */
+.link-text {
+    text-align: center !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0 !important;
+    color: #676f9d !important;
+    font-size: 0.9rem !important;
+}
+
+.text-light-link {
+    color: #f9b17a !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    transition: color 0.3s ease !important;
+}
+
+.text-light-link:hover {
+    color: #e89e6a !important;
+    text-decoration: underline !important;
+}
+
+/* Beranda.php page  */
+/* ===== BERANDA STYLES ===== */
+
+/* HERO SECTION */
+.hero-semidark {
+    background: linear-gradient(135deg, #2d3250 0%, #424769 100%);
+    color: white;
+    padding: 100px 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #f9b17a;
+    color: #2d3250;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #e89e6a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(249, 177, 122, 0.3);
+    color: #2d3250;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+    color: white;
+}
+
+/* BOOK SECTIONS */
+.book-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.book-section:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.section-title {
+    color: #2d3250;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.featured-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.featured-big {
+    position: sticky;
+    top: 100px;
+}
+
+.featured-img {
+    width: 100%;
+    height: 500px; /* Sesuaikan dengan tinggi book cards */
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    object-fit: cover; /* Sama dengan book cover */
+}
+
+.featured-list {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 10px 5px 30px;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE */
+}
+
+.featured-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* BOOK CARDS */
+.book-card.modern {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    min-width: 200px; /* Lebar lebih kecil */
+    border: 1px solid #e9ecef;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.book-card.modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.book-cover {
+    width: 100%;
+    height: 250px; /* Tinggi tetap */
+    margin-bottom: 15px;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover; /* Sama dengan featured-img */
+}
+
+.book-info {
+    text-align: center;
+}
+
+.book-title {
+    color: #2d3250;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    height: 2.6em; /* Fixed height for title */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.author {
+    color: #676f9d;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    height: 1.2em; /* Fixed height for author */
+    overflow: hidden;
+}
+
+.rating {
+    color: #f9b17a;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.btn-small {
+    background: #676f9d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-small:hover {
+    background: #5a6280;
+    transform: translateY(-2px);
+}
+
+/* CTA SECTION */
+.cta-semidark {
+    background: linear-gradient(135deg, #424769 0%, #2d3250 100%);
+    padding: 80px 0;
+    color: white;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.cta-btn {
+    background: #f9b17a;
+    color: #2d3250;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #e89e6a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(249, 177, 122, 0.3);
+    color: #2d3250;
+}
+
+/* SUBSCRIBE INFO */
+.subscribe-info {
+    padding: 100px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.subscribe-info h2 {
+    color: #2d3250;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.subscribe-info h6 {
+    color: #676f9d;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 4rem;
+}
+
+.step-box {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 40px 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.step-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.step-box h3 {
+    color: #2d3250;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.step-box hr {
+    border: none;
+    height: 3px;
+    background: #f9b17a;
+    width: 50px;
+    margin: 0 auto 20px;
+}
+
+.step-box p {
+    color: #676f9d;
+    line-height: 1.6;
+}
+
+.btn-primary.center {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .featured-layout {
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .featured-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .featured-big {
+        position: static;
+        text-align: center;
+    }
+    
+    .featured-img {
+        max-width: 300px;
+        margin: 0 auto;
+        height: 400px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cta-card h2 {
+        font-size: 2rem;
+    }
+    
+    .subscribe-info h2 {
+        font-size: 2rem;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .book-card.modern {
+        min-width: 180px;
+    }
+    
+    .book-cover {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-semidark {
+        padding: 60px 0;
+        min-height: 60vh;
+    }
+    
+    .book-section {
+        padding: 60px 0;
+    }
+    
+    .cta-semidark {
+        padding: 60px 0;
+    }
+    
+    .subscribe-info {
+        padding: 60px 0;
+    }
+    
+    .book-card.modern {
+        min-width: 160px;
+    }
+    
+    .book-cover {
+        height: 200px;
+    }
+}
