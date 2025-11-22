@@ -1,208 +1,166 @@
-<?php
-// views/beranda.php
-require_once '../models/bukuModels.php';
-require_once '../models/kategoriModels.php';
+<link rel="stylesheet" href="/Project-Praktikum-Pemograman-Web/public/css/style.css?v=<?= time() ?>">
 
-$bukuModel = new BukuModel();
-$kategoriModel = new KategoriModel();
+<!-- HERO SECTION (Semi Dark Full Width) -->
+<section class="hero-semidark">
+    <div class="container hero-wrapper">
+        <div class="hero-text">
+            <h1>Bersama Azizi.io Jelajahi Dunia Buku Digital Tanpa Ribet!</h1>
+            <p>Akses buku berkualitas, dimulai dari sini!</p>
 
-// Ambil data untuk beranda
-$bukuPopuler = $bukuModel->getPopularBooks(6);
-$bukuTerbaru = $bukuModel->getRecentBooks(6);
-$bukuRekomendasi = $bukuModel->getRecommendedBooks(6);
-$kategori = $kategoriModel->getAllCategories();
-?>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azizi.io - Digital Book Platform</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <?php include '../includes/headerGuest.php'; ?>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Temukan Dunia dalam Setiap Halaman</h1>
-                <p class="hero-subtitle">Jelajahi koleksi buku digital terbaik di Azizi.io. Baca kapan saja, di mana saja.</p>
-                
-                <!-- Search Bar -->
-                <div class="search-container">
-                    <form action="buku.php" method="GET" class="search-form">
-                        <input type="text" name="search" placeholder="Cari buku, penulis, atau kategori..." class="search-input">
-                        <button type="submit" class="search-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Buku Digital</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Penulis</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10K+</span>
-                        <span class="stat-label">Pembaca</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="../public/assets/hero-books.png" alt="Digital Books" class="hero-img">
+            <div class="hero-actions">
+                <a href="buku.php" class="btn-primary">Jelajahi Buku</a>
+                <?php if (!isset($_SESSION['is_logged_in'])): ?>
+                <?php endif; ?>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Categories Section -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="section-title">Jelajahi Kategori</h2>
-            <div class="categories-grid">
-                <?php foreach ($kategori as $kat): ?>
-                <a href="buku.php?kategori=<?= $kat->id ?>" class="category-card">
-                    <div class="category-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="category-name"><?= htmlspecialchars($kat->nama) ?></h3>
-                    <span class="category-count"><?= $kat->book_count ?? '0' ?> buku</span>
-                </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
+<!-- SECTION: REKOMENDASI UTAMA -->
+<section class="book-section">
+    <div class="container">
+        <h2 class="section-title">Rekomendasi untuk-mu!</h2>
 
-    <!-- Recommended Books -->
-    <section class="featured-books">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Rekomendasi Untuk Anda</h2>
-                <a href="buku.php" class="view-all">Lihat Semua</a>
+        <div class="featured-layout">
+            <!-- Poster (Tetap / Tidak Scroll) -->
+            <div class="featured-big">
+                <img src="https://placehold.co/400x500/2d3147/648599?text=Buku+Unggulan" 
+                     alt="Buku Unggulan" class="featured-img">
             </div>
-            <div class="books-grid">
-                <?php foreach ($bukuRekomendasi as $buku): ?>
-                <div class="book-card">
+
+            <!-- Buku Scroll Horizontal -->
+            <div class="featured-list">
+                <?php for ($i = 1; $i <= 10; $i++): ?>
+                <div class="book-card modern">
                     <div class="book-cover">
-                        <img src="../uploads/covers/<?= $buku->cover_path ?>" alt="<?= htmlspecialchars($buku->judul) ?>" class="cover-img">
-                        <div class="book-overlay">
-                            <a href="detail-buku.php?id=<?= $buku->id ?>" class="btn-read">Baca</a>
-                            <a href="../uploads/books/<?= $buku->file_path ?>" download class="btn-download">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                        </div>
+                        <img src="https://placehold.co/200x250/2d3147/648599?text=Cover<?= $i ?>" 
+                             alt="Buku Rekomendasi <?= $i ?>">
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title"><?= htmlspecialchars($buku->judul) ?></h3>
-                        <p class="book-author"><?= htmlspecialchars($buku->nama_penulis) ?></p>
-                        <div class="book-meta">
-                            <span class="book-category"><?= htmlspecialchars($buku->nama_kategori) ?></span>
-                            <span class="book-downloads"><?= $buku->download_count ?> unduh</span>
-                        </div>
+                        <h3 class="book-title">Buku Rekomendasi <?= $i ?></h3>
+                        <p class="author">Penulis <?= chr(64 + (($i % 26) ?: 1)) ?></p>
+                        <div class="rating">★★★★★</div>
+                        <button class="btn-small">Gratis Ebook</button>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endfor; ?>
             </div>
-        </div>
-    </section>
 
-    <!-- Popular Books -->
-    <section class="popular-books">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Buku Populer</h2>
-                <a href="buku.php?sort=popular" class="view-all">Lihat Semua</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: NEW RELEASE -->
+<section class="book-section">
+    <div class="container">
+        <h2 class="section-title">New Release!</h2>
+
+        <div class="featured-layout">
+            <!-- Poster -->
+            <div class="featured-big">
+                <img src="https://placehold.co/400x500/2d3147/648599?text=New+Release" 
+                     alt="New Release" class="featured-img">
             </div>
-            <div class="books-grid">
-                <?php foreach ($bukuPopuler as $buku): ?>
-                <div class="book-card">
+
+            <!-- Scroll List -->
+            <div class="featured-list">
+                <?php for ($i = 1; $i <= 10; $i++): ?>
+                <div class="book-card modern">
                     <div class="book-cover">
-                        <img src="../uploads/covers/<?= $buku->cover_path ?>" alt="<?= htmlspecialchars($buku->judul) ?>" class="cover-img">
-                        <div class="book-badge">Hot</div>
-                        <div class="book-overlay">
-                            <a href="detail-buku.php?id=<?= $buku->id ?>" class="btn-read">Baca</a>
-                        </div>
+                        <img src="https://placehold.co/200x250/2d3147/648599?text=Baru<?= $i ?>" 
+                             alt="Buku Baru <?= $i ?>">
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title"><?= htmlspecialchars($buku->judul) ?></h3>
-                        <p class="book-author"><?= htmlspecialchars($buku->nama_penulis) ?></p>
-                        <div class="book-rating">
-                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <span class="star <?= $i <= 4 ? 'active' : '' ?>">★</span>
-                            <?php endfor; ?>
-                        </div>
+                        <h3 class="book-title">Buku Baru <?= $i ?></h3>
+                        <p class="author">Penulis <?= chr(64 + (($i % 26) ?: 1)) ?></p>
+                        <div class="rating">★★★★★</div>
+                        <button class="btn-small">Gratis Ebook</button>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endfor; ?>
             </div>
-        </div>
-    </section>
 
-    <!-- New Books -->
-    <section class="new-books">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Buku Terbaru</h2>
-                <a href="buku.php?sort=recent" class="view-all">Lihat Semua</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: PALING POPULER -->
+<section class="book-section">
+    <div class="container">
+        <h2 class="section-title">Paling Populer!</h2>
+
+        <div class="featured-layout">
+            <!-- Poster -->
+            <div class="featured-big">
+                <img src="https://placehold.co/400x500/2d3147/648599?text=Populer" 
+                     alt="Buku Populer" class="featured-img">
             </div>
-            <div class="books-grid">
-                <?php foreach ($bukuTerbaru as $buku): ?>
-                <div class="book-card">
+
+            <!-- Scroll List -->
+            <div class="featured-list">
+                <?php for ($i = 1; $i <= 10; $i++): ?>
+                <div class="book-card modern">
                     <div class="book-cover">
-                        <img src="../uploads/covers/<?= $buku->cover_path ?>" alt="<?= htmlspecialchars($buku->judul) ?>" class="cover-img">
-                        <div class="book-badge new">New</div>
-                        <div class="book-overlay">
-                            <a href="detail-buku.php?id=<?= $buku->id ?>" class="btn-read">Baca</a>
-                        </div>
+                        <img src="https://placehold.co/200x250/2d3147/648599?text=Populer<?= $i ?>" 
+                             alt="Buku Populer <?= $i ?>">
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title"><?= htmlspecialchars($buku->judul) ?></h3>
-                        <p class="book-author"><?= htmlspecialchars($buku->nama_penulis) ?></p>
-                        <div class="book-meta">
-                            <span class="book-year"><?= $buku->tahun_terbit ?></span>
-                            <span class="book-pages"><?= $buku->halaman ?> hlm</span>
-                        </div>
+                        <h3 class="book-title">Populer <?= $i ?></h3>
+                        <p class="author">Penulis <?= chr(64 + (($i % 26) ?: 1)) ?></p>
+                        <div class="rating">★★★★★</div>
+                        <button class="btn-small">Gratis Ebook</button>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endfor; ?>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-semidark">
+    <div class="container">
+        <div class="cta-card">
+            <h2>Mau Jadi Penulis di Azizi.io?</h2>
+            <a href="penulis.php" class="cta-btn">Jadi Penulis</a>
+        </div>
+    </div>
+</section>
+
+<!-- LANGGANAN SECTION -->
+<section class="subscribe-info">
+    <div class="container">
+        <h2>Bagaimana Cara Langganan Buku di Azizi.io?</h2>
+        <h6>Sangat mudah untuk berlangganan di digital books by Azizi.io! Mari ikuti cara ini.</h6>
+
+        <div class="steps-grid">
+            <div class="step-box">
+                <h3>Daftar Akun</h3>
+                <hr>
+                <p>Buat akun baru dalam hitungan detik untuk mulai menggunakan platform.</p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Pilih Langganan</h3>
+                <hr>
+                <p>Pilih paket langganan yang sesuai kebutuhan membaca Anda.</p>
+            </div>
+
+            <div class="step-box">
+                <h3>Proses Pembayaran</h3>
+                <hr>
+                <p>Lakukan pembayaran dengan metode yang mudah dan aman.</p>
+            </div>
+            <div class="step-box">
+                <h3>Baca Semua Buku</h3>
+                <hr>
+                <p>Nikmati akses penuh ke semua koleksi buku digital kami.</p>
             </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Mulai Petualangan Membaca Anda</h2>
-                <p class="cta-text">Bergabung dengan ribuan pembaca lainnya dan temukan buku-buku menarik yang menunggu untuk dibaca.</p>
-                <div class="cta-buttons">
-                    <a href="daftar.php" class="btn btn-primary">Daftar Sekarang</a>
-                    <a href="buku.php" class="btn btn-secondary">Jelajahi Koleksi</a>
-                </div>
-            </div>
+        <div class="text-center">
+            <a href="daftar.php" class="btn-primary center">Pilih Bukunya Sekarang!</a>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <?php include '../includes/footer.php'; ?>
-
-    <script src="../public/js/main.js"></script>
-</body>
-</html>
+    </div>
+</section>
